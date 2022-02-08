@@ -13,6 +13,9 @@ gRPCのコードを生成する
 ### Goの場合
 `docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd  --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative ./hoge/fuga.proto`
 
+### Webの場合
+`docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd --js_out=import_style=commonjs,binary:front/src --grpc-web_out=import_style=commonjs,mode=grpcwebtext:front/src ./proto/communicate.proto`
+
 
 ## URLs
 
