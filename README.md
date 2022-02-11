@@ -7,6 +7,8 @@ gRPCのコードを生成する
 + go
 + web
 
+## buid
+`docker buid ./ -t protoc_cmd`
 
 ## 使用方法
 
