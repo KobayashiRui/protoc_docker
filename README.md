@@ -7,17 +7,22 @@ gRPCのコードを生成する
 + go
 + web
 
-## buid
-`docker buid ./ -t protoc_cmd`
+## build
+`docker build ./ -t protoc_cmd`
 
 ## 使用方法
+
+### /bin/sh
+`docker run -it --entrypoint=/bin/sh protoc_cmd`
 
 ### Goの場合
 `docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd  --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative ./hoge/fuga.proto`
 
-### Webの場合
-`docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd --js_out=import_style=commonjs,binary:front/src --grpc-web_out=import_style=commonjs,mode=grpcwebtext:front/src ./proto/communicate.proto`
+### Web(grpc/grpc-web)の場合
+`docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd --js_out=import_style=commonjs,binary:<output dir> --grpc-web_out=import_style=commonjs,mode=grpcwebtext:front/src ./proto/communicate.proto`
 
+### Web(improbable-eng/grpc-web)
+`docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd --plugin="protoc-gen-ts=/usr/local/bin/protoc-gen-ts" --js_out=import_style=commonjs,binary:<output dir> --ts_out="service=grpc-web:<output dir> ./proto/communicate.proto`
 
 ## URLs
 

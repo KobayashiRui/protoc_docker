@@ -22,6 +22,25 @@ RUN wget https://github.com/grpc/grpc-web/releases/download/1.3.1/protoc-gen-grp
 RUN mv protoc-gen-grpc-web-1.3.1-linux-x86_64 /usr/local/bin/protoc-gen-grpc-web
 RUN chmod +x /usr/local/bin/protoc-gen-grpc-web
 
+#install node js
+RUN apt install -y nodejs npm
+
+#n のインストール
+RUN npm install -g n
+
+#LTSのインストール
+RUN n lts
+
+#hashの更新
+RUN hash -r
+
+#old version nodeのアンインストール
+RUN apt purge -y nodejs npm
+
+RUN apt -y autoremove
+
+RUN npm install -g ts-protoc-gen
+
 
 # ボリュームのマウントポイントを定義
 RUN mkdir /ex_dir
