@@ -22,7 +22,7 @@ gRPCのコードを生成する
 `docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd --js_out=import_style=commonjs,binary:<output dir> --grpc-web_out=import_style=commonjs,mode=grpcwebtext:front/src ./proto/communicate.proto`
 
 ### Web(improbable-eng/grpc-web)
-`docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd --plugin="protoc-gen-ts=/usr/local/bin/protoc-gen-ts" --js_out=import_style=commonjs,binary:<output dir> --ts_out="service=grpc-web:<output dir> ./proto/communicate.proto`
+`docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd --plugin="protoc-gen-ts=/usr/local/bin/protoc-gen-ts" --js_out="import_style=commonjs,binary:<output dir>" --ts_out="service=grpc-web:<output dir>" ./proto/communicate.proto`
 
 ## URLs
 
