@@ -24,6 +24,10 @@ gRPCのコードを生成する
 ### Web(improbable-eng/grpc-web)
 `docker run --rm -it -v ${PWD}:/ex_dir protoc_cmd --plugin="protoc-gen-ts=/usr/local/bin/protoc-gen-ts" --js_out="import_style=commonjs,binary:<output dir>" --ts_out="service=grpc-web:<output dir>" ./proto/communicate.proto`
 
+### Node
+`docker run --rm -it -v ${PWD}:/ex_dir --entrypoint=grpc_tools_node_protoc protoc_cmd --js_out=import_style=commonjs,binary:<output dir> --grpc_out=grpc_js:<output dir> ./proto/communicate.proto`
+
+
 ## URLs
 
 [Go install](https://go.dev/dl/)

@@ -41,6 +41,9 @@ RUN apt -y autoremove
 
 RUN npm install -g ts-protoc-gen
 
+#node grpc-tools をインストール
+RUN npm install -g grpc-tools
+
 
 # ボリュームのマウントポイントを定義
 RUN mkdir /ex_dir
